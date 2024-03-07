@@ -1,4 +1,4 @@
-t (set-logic NIA)
+(set-logic NIA)
 
 (set-option :produce-models true)
 (set-option :incremental true)
