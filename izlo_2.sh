@@ -16,8 +16,44 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;; START OF SOLUTION ;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(declare-fun x () Int)
+(declare-fun y () Int)
+(declare-fun z () Int)
 
-; Zde doplnte vase reseni
+(declare-fun x () Int)
+(declare-fun y () Int)
+(declare-fun z () Int)
+
+
+
+(assert 
+    (forall ((D_n Int) (E_n Int) (x_n Int) (y_n Int) (z_n Int))
+        (and
+            (= x (* A B 2))
+            (> D 0) 
+            (> E 0)
+            (=> (< x E) (= y (+ x (* B 5))))
+            (=> (>= x E) (= y (- x C))) 
+            (=> (< (+ y 2) D) (= z (- (* x A) (* y B)))) 
+            (=> (>= (+ y 2) D) (= z (+ (* x B) (* y A)))) 
+            (< z (+ E D))
+            (=>  
+                (and
+                    (= x_n (* A B 2))
+                    (> D_n 0) 
+                    (> E_n 0)
+                    (=> (< x_n E_n) (= y_n (+ x_n (* B 5))))
+                    (=> (>= x_n E_n) (= y_n (- x_n C))) 
+                    (=> (< (+ y_n 2) D_n) (= z_n (- (* x_n A) (* y_n B)))) 
+                    (=> (>= (+ y_n 2) D_n) (= z_n (+ (* x_n B) (* y_n A)))) 
+                    (< z_n (+ E_n D_n)) 
+                )
+                (>= (+ D_n E_n) (+ D E))
+            )
+        )
+    )
+)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;; END OF SOLUTION ;;;;;;;;;;;
